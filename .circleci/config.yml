@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  coveralls: coveralls/coveralls@2.1.0
   node: circleci/node@5.1.0
   win: circleci/windows@5.0.0
 
@@ -67,6 +68,7 @@ jobs:
     steps:
       - install
       - run: yarn test:ci
+      - coveralls/upload
   mac-build:
     parameters:
       arch:
